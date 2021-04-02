@@ -10,7 +10,7 @@ object ApiManager {
             .setLenient()
             .create()
     var retrofit = Retrofit.Builder()
-            .baseUrl("https://crm.towarddevelopment.org/api/")
+            .baseUrl("https://zoho.towarddevelopment.org/api/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

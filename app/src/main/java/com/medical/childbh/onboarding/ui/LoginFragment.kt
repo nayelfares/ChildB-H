@@ -21,7 +21,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login), LoginView {
         this.passwordEditText = password;
         login.setOnClickListener{
             loading()
-            loginViewModel.login(email.getText().toString(), password.getText().toString())
+            loginViewModel.login(email.text.toString(), password.text.toString())
         }
         register.setOnClickListener{
             (requireActivity() as OnboardingProcess).replaceFragment(GeneralRegister())

@@ -15,10 +15,12 @@
         android:layout_height="100dp"
         android:src="@mipmap/buzzel"
         android:layout_gravity="center"/>
+
+
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/first_name"
+        android:text="@string/name"
         android:textColor="@color/black"
         android:textAlignment="viewStart"
         android:textSize="18sp"
@@ -35,49 +37,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/firstname"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/last_name"
-        android:textColor="@color/black"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
-    <androidx.appcompat.widget.AppCompatEditText
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:inputType="text"
-        android:background="@drawable/ic_edittext_border"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:id="@+id/lastname"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textColor="@color/black"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
-    <androidx.appcompat.widget.AppCompatEditText
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:inputType="text"
-        android:background="@drawable/ic_edittext_border"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:id="@+id/username"/>
+        android:id="@+id/name"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -160,11 +120,11 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/trainer"
+            android:text="@string/doctor"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginStart="16dp"
-            android:id="@+id/trainer"/>
+            android:id="@+id/doctor"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

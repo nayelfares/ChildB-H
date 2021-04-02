@@ -7,26 +7,16 @@
     <string name="email_address">Email Address</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="type">Type</string>
-    <string name="trainer">Trainer</string>
     <string name="parent">Parent</string>
     <string name="next">Next</string>
     <string name="speciality">Speciality</string>
-    <string name="collage">Collage</string>
-    <string name="previous_clinics">Previous Clinics</string>
-    <string name="clinic_address">Clinic address</string>
-    <string name="experience_years">Experience years</string>
-    <string name="certificate_number">Certificate number</string>
     <string name="i_have_read_and_agree_the_term_conditions"><![CDATA[I have read and agree the Term & Conditions]]></string>
     <string name="child_name">Child name</string>
     <string name="chile_age">Child age</string>
-    <string name="parent_gender">Parent gender</string>
-    <string name="parent_job">Parent job</string>
-    <string name="child_main_problem">Child main problem</string>
-    <string name="child_number">Child number</string>
+
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="approve_conditions_first">You have to agree term and conditions first</string>
-    <string name="marriage_status">Marriage status</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="phone">Phone  : </string>
@@ -42,8 +32,6 @@
     <string name="details">Details :</string>
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
-    <string name="choose_شppropriate_time">Choose Appropriate Time</string>
-    <string name="no_available_appointments">No Available Appointments</string>
     <string name="not_available">Not available</string>
     <string name="your_appointment">Your appoinmtent at :</string>
     <string name="submit_appointment">Submit appointment</string>
@@ -68,4 +56,8 @@
     <string name="chat">Chat</string>
     <string name="register">Register</string>
     <string name="you_dont_have_account">You dont have account ?</string>
+    <string name="doctor">Doctor</string>
+    <string name="name">Name</string>
+    <string name="type_valid_email">Type valid email</string>
+    <string name="blank_passowrd">Blank password</string>
 </resources>

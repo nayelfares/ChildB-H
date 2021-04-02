@@ -12,32 +12,16 @@ import io.reactivex.schedulers.Schedulers
 class RegistrationViewModel(var registrationView: RegistrationView, var context: Context) {
     fun register(
             first_name         : String,
-            last_name          : String,
-            user_name          : String,
             email              : String,
             password           : String,
             phone              : String,
             type               : String,
             speciality         : String,
-            collage            : String,
-            previous_clincs    : String,
-            clinic_address     : String,
-            experience_years   : String,
-            certificate_number : String,
-            child_name         : String,
-            child_age          : String,
-            parent_job         : String,
-            marriage_status    : String,
-            parent_gender      : String,
-            child_number       : String,
-            child_main_problem : String
+            address            : String,
     ) {
         val loginObservable = OnbordingApiManager.onboardingService.register(
-                first_name, last_name, user_name, email, password,
-                phone, type, speciality, collage, previous_clincs,
-                clinic_address, experience_years, certificate_number,
-                child_name, child_age, parent_job, marriage_status,
-                parent_gender, child_number, child_main_problem
+                first_name, email, password,
+                phone, type, speciality, address
         )
         loginObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<LoginResponse> {
