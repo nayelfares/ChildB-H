@@ -1,5 +1,6 @@
 package com.medical.childbh.onboarding.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -8,6 +9,7 @@ import com.medical.childbh.R
 import com.medical.childbh.onboarding.OnboardingProcess
 import com.medical.childbh.onboarding.model.LoginData
 import com.medical.childbh.onboarding.vm.LoginViewModel
+import com.medical.childbh.parent.ParentActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : BaseFragment(R.layout.fragment_login), LoginView {
@@ -30,10 +32,10 @@ class LoginFragment : BaseFragment(R.layout.fragment_login), LoginView {
 
     override fun loginSuccess(data: LoginData) {
         if (data.type == "parent") {
-//            ParentActivity.id = data.id;
-//            ParentActivity.token = "Bearer " + data.token;
-//            ParentActivity.type = data.type;
-//            requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
+            ParentActivity.id = data.id
+            ParentActivity.token = "Bearer " + data.token
+            ParentActivity.type = data.type
+            requireActivity().startActivity(Intent(requireContext(), ParentActivity::class.java))
         } else {
 //            TrainerActivity.id = data.id;
 //            TrainerActivity.token = "Bearer " + data.token;
