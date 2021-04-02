@@ -5,10 +5,7 @@ import com.medical.childbh.parent.model.ArticleResult
 import com.medical.childbh.parent.model.ChildrenResult
 import com.medical.childbh.parent.model.DoctorsListResult
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ParentService {
     @GET("article")
@@ -34,4 +31,10 @@ interface ParentService {
             @Header("Authorization")  token     :String,
             @Query("parent_id")       parent_id :Int
     ): Observable<ChildrenResult>
+
+    @DELETE("child/{id}")
+    fun deleteChild(
+            @Header("Authorization")  token     :String,
+            @Path("id")       id :Int
+    ): Observable<GeneralResponse>
 }

@@ -27,7 +27,7 @@ class ChildrenFragment : BaseFragment(R.layout.fragment_children),ChildrenView {
 
     override fun getChildrenSuccess(children: ArrayList<Child>) {
         stopLoading()
-        content.adapter= ChildAdapter(requireContext(),children )
+        content.adapter= ChildAdapter(this,children )
     }
 
 }
