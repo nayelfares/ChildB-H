@@ -20,7 +20,7 @@ class ParentRegistration(var firstname: String, var lastname: String, var userna
         val genders = arrayOf<String?>("Male", "Female")
         val genderAdapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, genders)
         parent_gender.setAdapter(genderAdapter)
-        register.setOnClickListener(View.OnClickListener { v: View? ->
+        register.setOnClickListener{
             if (conditions.isChecked()) {
                 loading()
                 registrationViewModel.register(
@@ -35,7 +35,7 @@ class ParentRegistration(var firstname: String, var lastname: String, var userna
                         child_main_problem.text.toString()
                 )
             } else showMessage(requireContext().resources.getString(R.string.approve_conditions_first))
-        })
+        }
     }
 
     override fun registrationSuccess(message: String) {

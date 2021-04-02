@@ -14,7 +14,6 @@ class LoginFragment : BaseFragment(R.layout.fragment_login), LoginView {
     lateinit var emailEditText: EditText
     lateinit var passwordEditText: EditText
     lateinit var loginViewModel: LoginViewModel
-    public
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginViewModel = LoginViewModel(requireContext(), this)
