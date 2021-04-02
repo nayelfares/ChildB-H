@@ -65,4 +65,5 @@
     <string name="children">Children</string>
     <string name="doctors">Doctors</string>
     <string name="articals">Articals</string>
+    <string name="check_intenet_connection">Check intenet connection</string>
 </resources>

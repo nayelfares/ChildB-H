@@ -27,7 +27,7 @@ class DoctorsFragment : BaseFragment(R.layout.fragment_doctors),ConsultantsView 
 
     override fun onSuccess(doctors: ArrayList<Doctor>) {
         stopLoading()
-        content.adapter= DoctorAdapter(requireContext(),doctors)
+        content.adapter= DoctorAdapter(this,doctors)
     }
 
 }

@@ -1,10 +1,12 @@
 package com.medical.childbh.parent.api
 
+import com.medical.childbh.GeneralResponse
 import com.medical.childbh.parent.model.ArticleResult
 import com.medical.childbh.parent.model.DoctorsListResult
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ParentService {
@@ -17,4 +19,12 @@ interface ParentService {
     fun getDoctorsList(
             @Header("Authorization")  token:String
     ): Observable<DoctorsListResult>
+
+    @POST("doctor/rating/add")
+    fun rate(
+            @Header("Authorization")  token:String,
+            @Query("doctor_id") doctor_id:Int,
+            @Query("value") value:Int,
+            @Query("parent_id") parent_id:Int
+    ): Observable<GeneralResponse>
 }
