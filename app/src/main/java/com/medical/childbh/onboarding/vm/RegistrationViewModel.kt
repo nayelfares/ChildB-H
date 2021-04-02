@@ -16,12 +16,12 @@ class RegistrationViewModel(var registrationView: RegistrationView, var context:
             password           : String,
             phone              : String,
             type               : String,
-            speciality         : String,
+            specialization     : String,
             address            : String,
     ) {
         val loginObservable = OnbordingApiManager.onboardingService.register(
                 first_name, email, password,
-                phone, type, speciality, address
+                phone, type, specialization, address
         )
         loginObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<LoginResponse> {

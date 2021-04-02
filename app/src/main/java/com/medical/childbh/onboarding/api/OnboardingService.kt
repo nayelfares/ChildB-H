@@ -19,7 +19,7 @@ interface OnboardingService {
             @Query("password") password: String,
             @Query("phone") phone: String,
             @Query("type") type: String,
-            @Query("speciality") speciality: String,
-            @Query("address") clinic_address: String
+            @Query("specialization") specialization: String,
+            @Query("address") address: String
     ): Observable<LoginResponse>
 }
