@@ -47,7 +47,7 @@ class RegistrationViewModel(var registrationView: RegistrationView, var context:
                     }
 
                     override fun onError(e: Throwable) {
-                        registrationView.registrationFailed(e.message)
+                        registrationView.registrationFailed(e.message.toString())
                     }
 
                     override fun onComplete() {}

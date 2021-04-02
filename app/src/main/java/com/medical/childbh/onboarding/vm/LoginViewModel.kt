@@ -23,7 +23,7 @@ class LoginViewModel(var context: Context, var loginView: LoginView) {
                     }
 
                     override fun onError(e: Throwable) {
-                        loginView.loginFailed(e.message)
+                        loginView.loginFailed(e.message.toString())
                     }
 
                     override fun onComplete() {}
