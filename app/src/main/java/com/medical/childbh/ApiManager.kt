@@ -15,3 +15,7 @@ object ApiManager {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 }
+
+fun String?.toUrl():String{
+    return "https://zoho.towarddevelopment.org/$this"
+}

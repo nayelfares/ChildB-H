@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.medical.childbh.R
+import com.medical.childbh.parent.ui.ArticalsFragment
 import kotlinx.android.synthetic.main.activity_parent.*
 
 class ParentActivity : AppCompatActivity() {
@@ -48,6 +49,7 @@ class ParentActivity : AppCompatActivity() {
             }
             false
         }
+        replaceFragmentAndClear(ArticalsFragment())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
