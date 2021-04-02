@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.medical.childbh.R
 import com.medical.childbh.parent.ui.ArticalsFragment
+import com.medical.childbh.parent.ui.ChildrenFragment
 import com.medical.childbh.parent.ui.DoctorsFragment
 import kotlinx.android.synthetic.main.activity_parent.*
 
@@ -39,6 +40,7 @@ class ParentActivity : AppCompatActivity() {
                 R.id.children -> {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
+                    replaceFragmentAndClear(ChildrenFragment())
                 }
                 R.id.doctors -> {
                     item.isChecked = true

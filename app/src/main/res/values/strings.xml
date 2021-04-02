@@ -66,4 +66,8 @@
     <string name="doctors">Doctors</string>
     <string name="articals">Articals</string>
     <string name="check_intenet_connection">Check intenet connection</string>
+    <string name="delete">Delete</string>
+    <string name="view_report">View Report</string>
+    <string name="add_consultant">Add consultant</string>
+    <string name="add_new_child">Add new child</string>
 </resources>
