@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".parent.ParentActivity"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

@@ -21,7 +21,7 @@ class ChildrenFragment : BaseFragment(R.layout.fragment_children),ChildrenView {
         loading()
         childrenViewModel.getChildren()
         addChild.setOnClickListener {
-            (requireActivity() as ParentActivity).replaceFragment(AddChild())
+            (requireActivity() as ParentActivity).replaceFragment(AddChild(this))
         }
     }
 
@@ -34,6 +34,11 @@ class ChildrenFragment : BaseFragment(R.layout.fragment_children),ChildrenView {
     override fun getChildrenSuccess(children: ArrayList<Child>) {
         stopLoading()
         content.adapter= ChildAdapter(this,children )
+    }
+
+    fun reload() {
+        loading()
+        childrenViewModel.getChildren()
     }
 
 }

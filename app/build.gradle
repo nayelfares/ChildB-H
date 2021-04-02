@@ -56,6 +56,8 @@ dependencies {
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
