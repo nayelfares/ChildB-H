@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.medical.childbh.R
 import com.medical.childbh.parent.ui.ArticalsFragment
+import com.medical.childbh.parent.ui.DoctorsFragment
 import kotlinx.android.synthetic.main.activity_parent.*
 
 class ParentActivity : AppCompatActivity() {
@@ -31,17 +32,23 @@ class ParentActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         parentNavView.setNavigationItemSelectedListener{ item ->
             val menu = parentNavView.menu
-            for (i in 0 .. menu.size()) {
+            for (i in 0 until menu.size()) {
                 menu.getItem(i).isChecked = false
             }
             when (item.itemId) {
-                R.id.parent_speech_trainers -> {
+                R.id.children -> {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
                 }
-                R.id.parent_profile -> {
+                R.id.doctors -> {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
+                    replaceFragmentAndClear(DoctorsFragment())
+                }
+                R.id.articals -> {
+                    item.isChecked = true
+                    drawerLayout.closeDrawers()
+                    replaceFragmentAndClear(ArticalsFragment())
                 }
                 else -> {
                     Toast.makeText(applicationContext, "nothing selected", Toast.LENGTH_LONG).show()

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/parent_speech_trainers"
-        android:title="Speech Trainers"/>
-    <item android:id="@+id/parent_profile"
-        android:title="Profile"/>
+    <item android:id="@+id/children"
+        android:title="@string/children"/>
+    <item android:id="@+id/doctors"
+        android:title="@string/doctors"/>
+    <item android:id="@+id/articals"
+        android:title="@string/articals"/>
 </menu>

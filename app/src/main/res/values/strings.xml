@@ -62,4 +62,7 @@
     <string name="blank_passowrd">Blank password</string>
     <string name="no_result">No result</string>
     <string name="read_more"><![CDATA[read more >>>]]></string>
+    <string name="children">Children</string>
+    <string name="doctors">Doctors</string>
+    <string name="articals">Articals</string>
 </resources>
