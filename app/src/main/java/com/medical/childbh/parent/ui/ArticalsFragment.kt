@@ -26,7 +26,7 @@ class ArticalsFragment : BaseFragment(R.layout.activity_articals),ArticalsView {
 
     override fun onSuccess(categories: ArrayList<Article>) {
         stopLoading()
-        content.adapter= ArticleAdapter(requireContext(),categories)
+        content.adapter= ArticleAdapter(this,categories)
     }
 
 }
