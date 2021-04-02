@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
@@ -20,15 +21,15 @@ class ParentActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.button_gradient))
-        window.statusBarColor = resources.getColor(R.color.purple_500)
+        supportActionBar?.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.button_gradient))
+        window.statusBarColor = ContextCompat.getColor(this,R.color.purple_500)
         setContentView(R.layout.activity_parent)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle!!)
         toggle!!.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        parentNavView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { item ->
-            val menu = parentNavView.getMenu()
+        parentNavView.setNavigationItemSelectedListener{ item ->
+            val menu = parentNavView.menu
             for (i in 0 .. menu.size()) {
                 menu.getItem(i).isChecked = false
             }
@@ -46,7 +47,7 @@ class ParentActivity : AppCompatActivity() {
                 }
             }
             false
-        })
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
