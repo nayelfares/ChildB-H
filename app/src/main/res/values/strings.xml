@@ -84,4 +84,6 @@
     <string name="do_you_want_to_delete_consultation">Do you want to delete consultation</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="profile">Profile</string>
+    <string name="parents">Parents</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import com.medical.childbh.BaseFragment
 import com.medical.childbh.R
+import com.medical.childbh.doctor.DoctorActivity
 import com.medical.childbh.onboarding.OnboardingProcess
 import com.medical.childbh.onboarding.model.LoginData
 import com.medical.childbh.onboarding.vm.LoginViewModel
@@ -37,10 +38,10 @@ class LoginFragment : BaseFragment(R.layout.fragment_login), LoginView {
             ParentActivity.type = data.type
             requireActivity().startActivity(Intent(requireContext(), ParentActivity::class.java))
         } else {
-//            TrainerActivity.id = data.id;
-//            TrainerActivity.token = "Bearer " + data.token;
-//            TrainerActivity.type = data.type;
-//            requireActivity().startActivity(new Intent(requireContext(), TrainerActivity.class));
+            DoctorActivity.id = data.id;
+            DoctorActivity.token = "Bearer " + data.token;
+            DoctorActivity.type = data.type;
+            requireActivity().startActivity( Intent(requireContext(), DoctorActivity::class.java))
         }
         stopLoading()
         requireActivity().finish()
