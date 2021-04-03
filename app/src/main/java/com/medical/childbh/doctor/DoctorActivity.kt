@@ -12,10 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.medical.childbh.R
-import com.medical.childbh.parent.ui.ChildrenFragment
+import com.medical.childbh.doctor.ui.ProfileFragment
 import kotlinx.android.synthetic.main.activity_doctor.*
-import kotlinx.android.synthetic.main.activity_parent.*
-import kotlinx.android.synthetic.main.activity_parent.drawerLayout
 
 class DoctorActivity : AppCompatActivity() {
     private var toggle: ActionBarDrawerToggle? = null
@@ -30,9 +28,10 @@ class DoctorActivity : AppCompatActivity() {
         toggle!!.syncState()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         doctorNavView.setNavigationItemSelectedListener{ item ->
-            val menu = parentNavView.menu
+            val menu = doctorNavView.menu
             for (i in 0 until menu.size()) {
                 menu.getItem(i).isChecked = false
+                replaceFragment(ProfileFragment())
             }
             when (item.itemId) {
                 R.id.profile -> {
@@ -58,7 +57,7 @@ class DoctorActivity : AppCompatActivity() {
 
     fun replaceFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.parent_container, fragment)
+        transaction.add(R.id.doctor_container, fragment)
         transaction.addToBackStack(fragment.tag)
         transaction.commit()
     }
@@ -66,14 +65,14 @@ class DoctorActivity : AppCompatActivity() {
     fun replaceFragmentAndClear(fragment: Fragment) {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.parent_container, fragment)
+        transaction.add(R.id.doctor_container, fragment)
         transaction.addToBackStack(fragment.tag)
         transaction.commit()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val fragment = supportFragmentManager.findFragmentById(R.id.parent_container)
+        val fragment = supportFragmentManager.findFragmentById(R.id.doctor_container)
         fragment!!.onActivityResult(requestCode, resultCode, data)
     }
 
