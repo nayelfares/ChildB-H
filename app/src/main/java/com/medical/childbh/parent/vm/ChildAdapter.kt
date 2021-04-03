@@ -11,6 +11,7 @@ import com.medical.childbh.R
 import com.medical.childbh.parent.ParentActivity
 import com.medical.childbh.parent.api.ParentApiManager
 import com.medical.childbh.parent.model.Child
+import com.medical.childbh.parent.ui.AddConsultant
 import com.medical.childbh.parent.ui.ChildrenFragment
 import com.medical.childbh.parent.ui.UpdateChild
 import com.medical.childbh.toUrl
@@ -42,7 +43,7 @@ class ChildAdapter(val context: ChildrenFragment, val children: ArrayList<Child>
             popup.setOnMenuItemClickListener { item: MenuItem ->
                 when (item.itemId) {
                     R.id.addConsultant -> {
-
+                        (context.requireActivity() as ParentActivity).replaceFragment(AddConsultant(child.id))
                         return@setOnMenuItemClickListener true
                     }
                     R.id.delete -> {

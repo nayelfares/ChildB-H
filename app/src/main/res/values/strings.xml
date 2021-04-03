@@ -75,4 +75,6 @@
     <string name="choose_photo">Choose Photo</string>
     <string name="information">Information</string>
     <string name="update">Update</string>
+    <string name="choose_doctor_from_list">Choose doctor from list</string>
+    <string name="type_your_child_problem">Type your child problem</string>
 </resources>

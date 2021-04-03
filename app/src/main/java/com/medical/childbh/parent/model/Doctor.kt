@@ -14,7 +14,8 @@ data class Doctor(
     val email:String,
     val details: String?,
     val specialization:String?,
-    val review: Float
+    val review: Float,
+    var selected :Boolean=false
     ): Parcelable
 
 data class DoctorsListResult(val success:Boolean,val message:String,val data: ArrayList<Doctor>)

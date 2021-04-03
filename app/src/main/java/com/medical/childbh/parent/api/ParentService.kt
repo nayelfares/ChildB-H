@@ -61,4 +61,12 @@ interface ParentService {
             @Query("gender") gender: String,
             @Query("parent_id") parent_id: Int
     ): Observable<GeneralResponse>
+
+    @POST("consultation")
+    fun addConsultation(
+            @Header("Authorization") token: String,
+            @Query("child_id") child_id: Int,
+            @Query("doctor_id") doctor_id: Int,
+            @Query("question") question: String
+    ): Observable<GeneralResponse>
 }
