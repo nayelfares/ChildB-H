@@ -11,8 +11,8 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class ChildrenViewModel(val context: Context,val childrenView: ChildrenView) {
-    fun getChildren() {
-        val registerVar  = ParentApiManager.parentService.getChildren(ParentActivity.token,ParentActivity.id )
+    fun getChildren(token:String,parentId:Int) {
+        val registerVar  = ParentApiManager.parentService.getChildren(token,parentId )
         registerVar.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<ChildrenResult> {

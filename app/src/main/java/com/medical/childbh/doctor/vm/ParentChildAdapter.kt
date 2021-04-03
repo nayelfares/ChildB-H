@@ -3,39 +3,43 @@ package com.medical.childbh.doctor.vm
 import android.view.*
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.medical.childbh.R
-import com.medical.childbh.doctor.DoctorActivity
-import com.medical.childbh.doctor.model.Parent
 import com.medical.childbh.doctor.ui.ParentChildernFragment
-import com.medical.childbh.doctor.ui.ParentsFragment
+import com.medical.childbh.parent.model.Child
+import com.medical.childbh.toUrl
+import de.hdodenhof.circleimageview.CircleImageView
 
-class ParentAdapter(val context: ParentsFragment, val parents: ArrayList<Parent>) : RecyclerView.Adapter<ParentAdapter.ViewHolder?>() {
+
+class ParentChildAdapter(val context: ParentChildernFragment, val children: ArrayList<Child>) : RecyclerView.Adapter<ParentChildAdapter.ViewHolder?>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view: View = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.parent_item_row, viewGroup, false)
+                .inflate(R.layout.parent_child_item_row, viewGroup, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val parent = parents[position]
-        viewHolder.name.setText(parent.name)
-        viewHolder.phone.setText(parent.phone)
+        val child = children[position]
+        viewHolder.name.setText(child.name)
+        Glide.with(context)
+                .load(child.photo.toUrl())
+                .into(viewHolder.image)
+
         viewHolder.itemView.setOnClickListener {
-            (context.requireActivity() as DoctorActivity).replaceFragment(ParentChildernFragment(parent.id))
+         //   (context.requireActivity() as ParentActivity).replaceFragment(UpdateChild(context,child))
         }
     }
 
     override fun getItemCount(): Int {
-        return parents.size
+        return children.size
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name     : TextView             = view.findViewById(R.id.name)
-        val phone     : TextView = view.findViewById(R.id.phone)
+        val image    : CircleImageView      = view.findViewById(R.id.photo)
 
     }
-
 
 
 }
