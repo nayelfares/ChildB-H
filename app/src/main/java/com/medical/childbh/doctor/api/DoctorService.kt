@@ -1,6 +1,7 @@
 package com.medical.childbh.doctor.api
 
 import com.medical.childbh.GeneralResponse
+import com.medical.childbh.doctor.model.ParentsResponse
 import com.medical.childbh.doctor.model.ProfileResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -29,8 +30,12 @@ interface DoctorService {
             @Query("id") id:Int,
             @Query("name") name:String,
             @Query("phone") phone:String,
-            @Query("dob") dob:String,
-            @Query("details") details:String,
-            @Query("password") password:String?=null
+            @Query("address") address:String,
+            @Query("specialization") specialization:String
     ): Observable<GeneralResponse>
+
+    @GET("get_parent")
+    fun getParents(
+            @Header("Authorization")  token:String
+    ): Observable<ParentsResponse>
 }

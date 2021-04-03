@@ -19,7 +19,7 @@
             android:src="@color/black"
             android:layout_centerInParent="true"
             app:civ_border_width="2dp"
-            android:id="@+id/photo1"/>
+            android:id="@+id/photo"/>
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textColor="@color/black"
-            android:id="@+id/username1"
+            android:id="@+id/username"
 
             android:textSize="16sp"
             android:layout_marginStart="8dp"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textColor="@color/black"
-            android:id="@+id/phone1"
+            android:id="@+id/phone"
             android:textSize="16sp"
             android:layout_marginStart="8dp"
             android:gravity="start"
@@ -110,12 +110,12 @@
             android:layout_marginStart="8dp"
             android:gravity="start|center"
             android:textStyle="bold"/>
-        <EditText
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight="3"
             android:textColor="@color/black"
-            android:id="@+id/email1"
+            android:id="@+id/email"
             android:textSize="16sp"
             android:layout_marginStart="8dp"
             android:gravity="start"
@@ -129,7 +129,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:text="@string/birth_date"
+            android:text="@string/specialization"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginStart="8dp"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textColor="@color/black"
-            android:id="@+id/birthDate1"
+            android:id="@+id/specialization"
             android:textSize="16sp"
             android:layout_marginStart="8dp"
             android:gravity="start"
@@ -154,7 +154,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:text="@string/password"
+            android:text="@string/address"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginStart="8dp"
@@ -165,44 +165,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textColor="@color/black"
-            android:hint="@string/no_change"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:id="@+id/password1"
+            android:id="@+id/address"
             android:textSize="16sp"
             android:layout_marginStart="8dp"
             android:gravity="start"
             android:textStyle="italic"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:text="@string/details"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="8dp"
-            android:gravity="start|center"
-            android:textStyle="bold"/>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textColor="@color/black"
-            android:id="@+id/details1"
-            android:textSize="16sp"
-            android:lines="5"
-            android:autoLink="web"
-            android:linksClickable="true"
-            android:textColorLink="#FF0000"
-            android:layout_marginStart="8dp"
-            android:gravity="start"
-            android:textStyle="normal"/>
-    </LinearLayout>
+
 
 
     <androidx.appcompat.widget.AppCompatButton

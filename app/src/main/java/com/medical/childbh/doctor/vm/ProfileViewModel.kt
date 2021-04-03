@@ -1,6 +1,7 @@
 package com.medical.childbh.doctor.vm
 
 import android.content.Context
+import android.net.LinkAddress
 import android.net.Uri
 import com.medical.childbh.GeneralResponse
 import com.medical.childbh.R
@@ -12,6 +13,7 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_profile.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -37,18 +39,12 @@ class ProfileViewModel(val profileView: ProfileView, val context: Context) {
                 })
     }
 
-    fun updateProfie(name:String,phone:String,dob:String,details:String,password:String){
-        var registerVar  = DoctorApiManager.doctorService.updateProfile(
+    fun updateProfie(name:String,phone:String,address:String,specialization:String){
+        val registerVar  = DoctorApiManager.doctorService.updateProfile(
                 DoctorActivity.token,
                 DoctorActivity.id,
-                name,phone,dob,details,password
+                name,phone,address,specialization
         )
-        if (password.trim()=="")
-            registerVar  = DoctorApiManager.doctorService.updateProfile(
-                    DoctorActivity.token,
-                    DoctorActivity.id,
-                    name,phone,dob,details
-            )
         registerVar.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<GeneralResponse> {

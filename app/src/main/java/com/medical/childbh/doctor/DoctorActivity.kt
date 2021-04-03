@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.medical.childbh.R
+import com.medical.childbh.doctor.ui.ParentsFragment
 import com.medical.childbh.doctor.ui.ProfileFragment
 import kotlinx.android.synthetic.main.activity_doctor.*
 
@@ -31,17 +32,17 @@ class DoctorActivity : AppCompatActivity() {
             val menu = doctorNavView.menu
             for (i in 0 until menu.size()) {
                 menu.getItem(i).isChecked = false
-                replaceFragment(ProfileFragment())
             }
             when (item.itemId) {
                 R.id.profile -> {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
+                    replaceFragmentAndClear(ProfileFragment())
                 }
                 R.id.parents -> {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
-
+                    replaceFragmentAndClear(ParentsFragment())
                 }
                 else -> {
                     Toast.makeText(applicationContext, "nothing selected", Toast.LENGTH_LONG).show()
@@ -49,6 +50,7 @@ class DoctorActivity : AppCompatActivity() {
             }
             false
         }
+        replaceFragmentAndClear(ParentsFragment())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
