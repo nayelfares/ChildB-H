@@ -12,6 +12,7 @@ import com.medical.childbh.parent.ParentActivity
 import com.medical.childbh.parent.api.ParentApiManager
 import com.medical.childbh.parent.model.Child
 import com.medical.childbh.parent.ui.AddConsultant
+import com.medical.childbh.parent.ui.ChildReports
 import com.medical.childbh.parent.ui.ChildrenFragment
 import com.medical.childbh.parent.ui.UpdateChild
 import com.medical.childbh.toUrl
@@ -52,7 +53,7 @@ class ChildAdapter(val context: ChildrenFragment, val children: ArrayList<Child>
                         return@setOnMenuItemClickListener true
                     }
                     R.id.viewReoprt -> {
-
+                        (context.requireActivity() as ParentActivity).replaceFragment(ChildReports(child.id))
                         return@setOnMenuItemClickListener true
                     }
                     else -> return@setOnMenuItemClickListener false

@@ -77,4 +77,11 @@
     <string name="update">Update</string>
     <string name="choose_doctor_from_list">Choose doctor from list</string>
     <string name="type_your_child_problem">Type your child problem</string>
+    <string name="your_question_about">Your qwestion about :</string>
+    <string name="doctor_answer">Answer from docotor :</string>
+    <string name="see_more"><![CDATA[See  more >>>]]></string>
+    <string name="see_less"><![CDATA[<<< See less]]></string>
+    <string name="do_you_want_to_delete_consultation">Do you want to delete consultation</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

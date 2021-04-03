@@ -58,6 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation 'com.borjabravo:readmoretextview:2.1.0'   // See more textview
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }

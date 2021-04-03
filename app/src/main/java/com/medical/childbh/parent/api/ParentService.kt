@@ -4,6 +4,7 @@ import com.medical.childbh.GeneralResponse
 import com.medical.childbh.parent.model.ArticleResult
 import com.medical.childbh.parent.model.ChildrenResult
 import com.medical.childbh.parent.model.DoctorsListResult
+import com.medical.childbh.parent.model.ReportsResult
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.*
@@ -68,5 +69,17 @@ interface ParentService {
             @Query("child_id") child_id: Int,
             @Query("doctor_id") doctor_id: Int,
             @Query("question") question: String
+    ): Observable<GeneralResponse>
+
+    @GET("consultation")
+    fun getReports(
+            @Header("Authorization") token: String,
+            @Query("child_id") child_id: Int
+    ): Observable<ReportsResult>
+
+    @DELETE("consultation/{id}")
+    fun deleteReport(
+            @Header("Authorization") token: String,
+            @Path("id") id: Int
     ): Observable<GeneralResponse>
 }
