@@ -87,4 +87,5 @@
     <string name="profile">Profile</string>
     <string name="parents">Parents</string>
     <string name="no_change">no change</string>
+    <string name="question_about">Question about :</string>
 </resources>

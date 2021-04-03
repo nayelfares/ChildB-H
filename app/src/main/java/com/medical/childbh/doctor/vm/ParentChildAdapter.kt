@@ -5,6 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.medical.childbh.R
+import com.medical.childbh.doctor.DoctorActivity
+import com.medical.childbh.doctor.ui.ParentChildReports
 import com.medical.childbh.doctor.ui.ParentChildernFragment
 import com.medical.childbh.parent.model.Child
 import com.medical.childbh.toUrl
@@ -27,7 +29,7 @@ class ParentChildAdapter(val context: ParentChildernFragment, val children: Arra
                 .into(viewHolder.image)
 
         viewHolder.itemView.setOnClickListener {
-         //   (context.requireActivity() as ParentActivity).replaceFragment(UpdateChild(context,child))
+            (context.requireActivity() as DoctorActivity).replaceFragment(ParentChildReports(child.id))
         }
     }
 
