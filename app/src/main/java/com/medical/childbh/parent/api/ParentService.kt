@@ -50,4 +50,15 @@ interface ParentService {
             @Query("gender") gender: String,
             @Query("parent_id") parent_id: Int
     ): Observable<GeneralResponse>
+
+    @PUT("child/{id}")
+    fun updateChild(
+            @Header("Authorization") token: String,
+            @Path("id") id: Int,
+            @Query("name") name: String,
+            @Query("dob") dob: String,
+            @Query("information") information: String,
+            @Query("gender") gender: String,
+            @Query("parent_id") parent_id: Int
+    ): Observable<GeneralResponse>
 }

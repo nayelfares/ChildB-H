@@ -12,6 +12,7 @@ import com.medical.childbh.parent.ParentActivity
 import com.medical.childbh.parent.api.ParentApiManager
 import com.medical.childbh.parent.model.Child
 import com.medical.childbh.parent.ui.ChildrenFragment
+import com.medical.childbh.parent.ui.UpdateChild
 import com.medical.childbh.toUrl
 import de.hdodenhof.circleimageview.CircleImageView
 import io.reactivex.Observer
@@ -58,6 +59,10 @@ class ChildAdapter(val context: ChildrenFragment, val children: ArrayList<Child>
             }
             popup.show()
         })
+
+        viewHolder.itemView.setOnClickListener {
+            (context.requireActivity() as ParentActivity).replaceFragment(UpdateChild(context,child))
+        }
     }
 
     override fun getItemCount(): Int {
