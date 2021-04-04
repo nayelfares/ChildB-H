@@ -4,5 +4,6 @@
         android:title="@string/profile"/>
     <item android:id="@+id/parents"
         android:title="@string/parents"/>
-
+    <item android:id="@+id/questions"
+        android:title="@string/questions_need_your_answer"/>
 </menu>

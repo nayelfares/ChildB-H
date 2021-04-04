@@ -88,4 +88,8 @@
     <string name="parents">Parents</string>
     <string name="no_change">no change</string>
     <string name="question_about">Question about :</string>
+    <string name="questions_need_your_answer">Qwestions need your answer</string>
+    <string name="your_answer">Your answer</string>
+    <string name="send">Send</string>
+    <string name="reply">Reply</string>
 </resources>

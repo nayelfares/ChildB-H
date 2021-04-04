@@ -38,4 +38,11 @@ interface DoctorService {
     fun getParents(
             @Header("Authorization")  token:String
     ): Observable<ParentsResponse>
+
+    @PUT("consultation/{id}")
+    fun addAnswer(
+            @Header("Authorization") authorization:String,
+            @Path("id") id:Int,
+            @Query("answer") answer:String
+    ): Observable<GeneralResponse>
 }

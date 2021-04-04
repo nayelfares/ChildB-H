@@ -7,7 +7,7 @@ data class Report (
         val child:String,
         val doctor:String,
         val question :String,
-        val answer :String
+        var answer :String
 )
 
 data class ReportsResult(val success:Boolean,val message:String,val data: ArrayList<Report>)
