@@ -1,6 +1,5 @@
 package com.medical.childbh.doctor.vm
 
-import android.content.Context
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,7 @@ import com.medical.childbh.GeneralResponse
 import com.medical.childbh.R
 import com.medical.childbh.doctor.DoctorActivity
 import com.medical.childbh.doctor.api.DoctorApiManager
-import com.medical.childbh.doctor.model.ParentsResponse
+import com.medical.childbh.doctor.ui.ActiveQuestons
 import com.medical.childbh.parent.model.Report
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,7 +19,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.active_qwestion_item_row.view.*
 
 
-class ActiveQuestionAdapter(val context: Context, val reports:ArrayList<Report>) : RecyclerView.Adapter<ActiveQuestionAdapter.ViewHolder>() {
+class ActiveQuestionAdapter(val context: ActiveQuestons, val reports:ArrayList<Report>) : RecyclerView.Adapter<ActiveQuestionAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view=ViewHolder( LayoutInflater.from(parent.context).inflate(R.layout.active_qwestion_item_row, parent, false))
@@ -58,6 +57,7 @@ class ActiveQuestionAdapter(val context: Context, val reports:ArrayList<Report>)
     }
 
     private fun send(id: Int, reply: String,position: Int) {
+        context.loading()
         val registerVar  = DoctorApiManager.doctorService.addAnswer(DoctorActivity.token,id,reply)
         registerVar.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -68,12 +68,17 @@ class ActiveQuestionAdapter(val context: Context, val reports:ArrayList<Report>)
                         if (t.success) {
                             reports[position].answer=reply
                             notifyItemChanged(position)
+                            context.stopLoading()
                         }
                         else{
-
+                            context.stopLoading()
+                            context.showMessage(t.message)
                         }
                     }
-                    override fun onError(e: Throwable) { }
+                    override fun onError(e: Throwable) {
+                        context.stopLoading()
+                        context.showMessage(e.message.toString())
+                    }
                 })
     }
 

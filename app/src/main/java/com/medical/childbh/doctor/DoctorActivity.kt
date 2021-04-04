@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.medical.childbh.R
+import com.medical.childbh.doctor.ui.ActiveQuestons
 import com.medical.childbh.doctor.ui.ParentsFragment
 import com.medical.childbh.doctor.ui.ProfileFragment
 import kotlinx.android.synthetic.main.activity_doctor.*
@@ -43,6 +44,11 @@ class DoctorActivity : AppCompatActivity() {
                     item.isChecked = true
                     drawerLayout.closeDrawers()
                     replaceFragmentAndClear(ParentsFragment())
+                }
+                R.id.questions -> {
+                    item.isChecked = true
+                    drawerLayout.closeDrawers()
+                    replaceFragmentAndClear(ActiveQuestons())
                 }
                 else -> {
                     Toast.makeText(applicationContext, "nothing selected", Toast.LENGTH_LONG).show()

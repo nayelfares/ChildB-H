@@ -3,6 +3,7 @@ package com.medical.childbh.doctor.api
 import com.medical.childbh.GeneralResponse
 import com.medical.childbh.doctor.model.ParentsResponse
 import com.medical.childbh.doctor.model.ProfileResponse
+import com.medical.childbh.parent.model.ReportsResult
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.*
@@ -45,4 +46,10 @@ interface DoctorService {
             @Path("id") id:Int,
             @Query("answer") answer:String
     ): Observable<GeneralResponse>
+
+    @GET("need_answer")
+    fun getActiveQuestions(
+            @Header("Authorization") token: String,
+            @Query("doctor_id") doctor_id: Int
+    ): Observable<ReportsResult>
 }
