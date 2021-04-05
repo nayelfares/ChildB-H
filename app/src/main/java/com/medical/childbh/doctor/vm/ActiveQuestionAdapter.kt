@@ -30,14 +30,11 @@ class ActiveQuestionAdapter(val context: ActiveQuestons, val reports:ArrayList<R
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val report = reports[position]
         holder.childName.text= report.child
-        holder.doctorName.text= report.doctor
         holder.question.text= report.question
-        holder.answer.text= report.answer
         holder.addAnswerContainer.visibility= View.GONE
-        holder.reply.visibility= View.GONE
-        holder.doctorAnswered.visibility= View.GONE
-        if (report.answer==""){
-            holder.reply.visibility= View.VISIBLE
+        holder.reply.visibility= View.VISIBLE
+        holder.reply.text = context.resources.getString(R.string.reply)
+        holder.newAnswer.setText("")
             holder.reply.setOnClickListener {
                 if (holder.addAnswerContainer.visibility== View.GONE) {
                     holder.addAnswerContainer.visibility = View.VISIBLE
@@ -47,9 +44,6 @@ class ActiveQuestionAdapter(val context: ActiveQuestons, val reports:ArrayList<R
                     holder.reply.text = context.resources.getString(R.string.reply)
                 }
             }
-        }else{
-            holder.doctorAnswered.visibility= View.VISIBLE
-        }
 
         holder.send.setOnClickListener {
             send(report.id,holder.newAnswer.text.toString(),position)
@@ -66,8 +60,9 @@ class ActiveQuestionAdapter(val context: ActiveQuestons, val reports:ArrayList<R
                     override fun onSubscribe(d: Disposable) { }
                     override fun onNext(t: GeneralResponse) {
                         if (t.success) {
-                            reports[position].answer=reply
-                            notifyItemChanged(position)
+                            reports.removeAt(position)
+                            notifyItemRemoved(position)
+                            notifyDataSetChanged()
                             context.stopLoading()
                         }
                         else{
@@ -91,12 +86,9 @@ class ActiveQuestionAdapter(val context: ActiveQuestons, val reports:ArrayList<R
     // stores and recycles views as they are scrolled off screen
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         var childName=itemView.childName
-        val doctorName=itemView.doctorName
         val question =itemView.question
-        val answer =itemView.answer
         val reply  = itemView.reply
         val addAnswerContainer = itemView.addAnswerContainer
-        val doctorAnswered = itemView.doctorAnswered
         val newAnswer  = itemView.newAnswer
         val send = itemView.send
     }
