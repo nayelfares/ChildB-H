@@ -19,14 +19,19 @@ import retrofit2.http.Query
 import java.io.File
 
 class AddChildViewModel(val context: Context,val addChildView: AddChildView) {
-    fun addChild( photo: Uri,name: String,dob: String,information: String,gender: String
+    fun addChild( photo: Uri?,name: String,dob: String,information: String,gender: String
     ){
-        val picture = File(photo.path!!)
-        var requestFile=picture.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-        val body = MultipartBody.Part.createFormData("photo", picture.name, requestFile)
-        val registerVar  = ParentApiManager.parentService.addChild(ParentActivity.token ,body,name,
+        var registerVar  = ParentApiManager.parentService.addChild(ParentActivity.token ,name,
                 dob,information,gender,ParentActivity.id
         )
+        if (photo!=null) {
+            val picture = File(photo.path!!)
+            val requestFile = picture.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+            val body = MultipartBody.Part.createFormData("photo", picture.name, requestFile)
+             registerVar  = ParentApiManager.parentService.addChild(ParentActivity.token ,body,name,
+                    dob,information,gender,ParentActivity.id
+            )
+        }
         registerVar.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<GeneralResponse> {

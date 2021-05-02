@@ -60,17 +60,14 @@ class AddChild(val childrenFragment: ChildrenFragment): BaseFragment(R.layout.fr
         choosePhoto.setOnClickListener { photo.callOnClick() }
 
         submit.setOnClickListener {
-            if (photoUri != null) {
                 loading()
                 addChildViewModel.addChild(
-                        photoUri!!,
+                        photoUri,
                         name.text.toString(),
                         birthDate.text.toString(),
                         information.text.toString(),
                         gender.selectedItem.toString()
                 )
-            }else
-                showMessage(requireContext().resources.getString(R.string.choose_photo))
         }
     }
 
